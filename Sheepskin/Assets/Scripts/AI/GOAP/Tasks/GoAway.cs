@@ -16,6 +16,8 @@ public class GoAway : GAction
            GetComponent<Flocking.Flock>().enabled = false;
         }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        // GetComponent<Rigidbody2D>().simulated = false;
+        
         return true;
     }
 
@@ -23,6 +25,7 @@ public class GoAway : GAction
     {
         GWorld.Instance.GetWorld().ModifyState("Away", -1);
         GetComponent<Flocking.Flock>().enabled = true;
+        // GetComponent<Rigidbody2D>().simulated = true;
         return true;
     }
 }
