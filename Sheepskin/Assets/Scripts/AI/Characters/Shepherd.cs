@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Goap;
 
-public class FlockMover : GAgent
+public class Shepherd : GAgent
 {
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
-        SubGoal s1 = new SubGoal("goTarget", 1, false);
-        goals.Add(s1, 2);
+
+        SubGoal s1 = new SubGoal("goAway", 1, false);
+        goals.Add(s1, 3);
     }
 }

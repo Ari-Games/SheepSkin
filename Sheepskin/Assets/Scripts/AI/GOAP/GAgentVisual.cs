@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
-public class GAgentVisual : MonoBehaviour
+
+namespace Goap
 {
-    public GAgent thisAgent;
-
-    // Start is called before the first frame update
-    void Start()
+    [ExecuteInEditMode]
+    public class GAgentVisual : MonoBehaviour
     {
-        thisAgent = this.GetComponent<GAgent>();
-    }
+        public GAgent thisAgent;
 
+        // Start is called before the first frame update
+        void Start()
+        {
+            thisAgent = this.GetComponent<GAgent>();
+        }
+
+    }
 }

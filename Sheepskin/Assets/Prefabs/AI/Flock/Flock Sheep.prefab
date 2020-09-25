@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2247381521064727928}
   - component: {fileID: 499590594201895961}
   - component: {fileID: 2247381521064727934}
+  - component: {fileID: 1914387227}
+  - component: {fileID: 1914387228}
   m_Layer: 0
   m_Name: Flock Sheep
   m_TagString: Sheep
@@ -117,7 +119,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -136,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63684509b63b13f4884e627208c99b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisAgent: {fileID: 0}
+  thisAgent: {fileID: 1914387228}
 --- !u!195 &2247381521064727928
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 1.5
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 2
@@ -187,3 +189,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7816b3d7cdca748ad06055418fae23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1914387227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247381521064727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6177d72d9b2a02c41aca09351346d47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Away
+  duration: 5
+  preConditions:
+  - key: Away
+    value: 0
+  afterEffects:
+  - key: goAway
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &1914387228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247381521064727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beee2063ef24b704891046f5a19a825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: []
+  currentAction: {fileID: 0}
+  rBody: {fileID: 0}
