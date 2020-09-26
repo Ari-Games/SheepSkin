@@ -2,96 +2,98 @@
 using System.Linq;
 using UnityEngine;
 
-
-public class ResourceQueue
+namespace Goap
 {
-    public Queue<GameObject> que = new Queue<GameObject>();
-    public string tag;
-    public string modState;
-
-    public ResourceQueue(string tag, string modState, WorldStates wStates)
+    public class ResourceQueue
     {
-        this.tag = tag;
-        this.modState = modState;
-        if(tag != "")
+        public Queue<GameObject> que = new Queue<GameObject>();
+        public string tag;
+        public string modState;
+
+        public ResourceQueue(string tag, string modState, WorldStates wStates)
         {
-            GameObject[] resources = GameObject.FindGameObjectsWithTag(tag);
-            foreach(var res in resources)
+            this.tag = tag;
+            this.modState = modState;
+            if(tag != "")
             {
-                que.Enqueue(res);
+                GameObject[] resources = GameObject.FindGameObjectsWithTag(tag);
+                foreach(var res in resources)
+                {
+                    que.Enqueue(res);
+                }
+            }
+
+            if(modState != "")
+            {
+                wStates.ModifyState(modState, que.Count);
             }
         }
 
-        if(modState != "")
+        public void AddResource(GameObject res)
         {
-            wStates.ModifyState(modState, que.Count);
+            que.Enqueue(res);
+        }
+
+        public GameObject RemoveResource()
+        {
+            if(que.Count == 0)
+            {
+                return null;
+            }
+            return que.Dequeue();
+        }
+
+        public void RemoveForDragging(GameObject item)
+        {
+            que = new Queue<GameObject>(que.Where(x => x != item));
         }
     }
 
-    public void AddResource(GameObject res)
-    {
-        que.Enqueue(res);
-    }
+    public sealed class GWorld {
 
-    public GameObject RemoveResource()
-    {
-        if(que.Count == 0)
+        // Our GWorld instance
+        private static readonly GWorld instance = new GWorld();
+        // Our world states
+        private static WorldStates world;
+        // Queue of patients
+        private static ResourceQueue awayPoints;
+    
+
+        private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
+
+        static GWorld() 
         {
-            return null;
+            // Create our world
+            world = new WorldStates();
+            awayPoints = new ResourceQueue("","",world); 
+            resources.Add("awayPoints",awayPoints);
+            // cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
+            // resources.Add("cubicles", cubicles);
+            // offices = new ResourceQueue("Office", "FreeOffice", world);
+            // resources.Add("offices", offices);
+            // toilets = new ResourceQueue("Toilet", "FreeToilet", world);
+            // resources.Add("toilets", toilets);
+            // puddles = new ResourceQueue("", "", world);
+            // resources.Add("puddles", puddles);
         }
-        return que.Dequeue();
-    }
 
-    public void RemoveForDragging(GameObject item)
-    {
-        que = new Queue<GameObject>(que.Where(x => x != item));
-    }
-}
+        public ResourceQueue GetQueue(string type)
+        {
+            return resources[type];
+        }
+        private GWorld() 
+        {
 
-public sealed class GWorld {
+        }
 
-    // Our GWorld instance
-    private static readonly GWorld instance = new GWorld();
-    // Our world states
-    private static WorldStates world;
-    // Queue of patients
-    private static ResourceQueue awayPoints;
-  
+        public static GWorld Instance {
 
-    private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
+            get { return instance; }
+        }
 
-    static GWorld() 
-    {
-        // Create our world
-        world = new WorldStates();
-        awayPoints = new ResourceQueue("","",world); 
-        resources.Add("awayPoints",awayPoints);
-        // cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
-        // resources.Add("cubicles", cubicles);
-        // offices = new ResourceQueue("Office", "FreeOffice", world);
-        // resources.Add("offices", offices);
-        // toilets = new ResourceQueue("Toilet", "FreeToilet", world);
-        // resources.Add("toilets", toilets);
-        // puddles = new ResourceQueue("", "", world);
-        // resources.Add("puddles", puddles);
-    }
+        public WorldStates GetWorld() {
 
-    public ResourceQueue GetQueue(string type)
-    {
-        return resources[type];
-    }
-    private GWorld() 
-    {
-
-    }
-
-    public static GWorld Instance {
-
-        get { return instance; }
-    }
-
-    public WorldStates GetWorld() {
-
-        return world;
+            return world;
+        }
     }
 }

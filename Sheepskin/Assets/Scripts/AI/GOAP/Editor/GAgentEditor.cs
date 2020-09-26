@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using Goap;
 
 [CustomEditor(typeof(GAgentVisual))]
 [CanEditMultipleObjects]

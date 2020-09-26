@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Away
   - Flock
+  - Sheep
   layers:
   - Default
   - TransparentFX
