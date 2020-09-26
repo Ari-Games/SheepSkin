@@ -13,7 +13,6 @@ public class MoveController : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-
     }
 
     void Update()
