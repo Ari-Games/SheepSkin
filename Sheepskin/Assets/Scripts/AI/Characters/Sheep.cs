@@ -11,6 +11,6 @@ public class Sheep : GAgent
         base.Start();
 
         SubGoal s1 = new SubGoal("goAway", 1, false);
-        goals.Add(s1, 3);
+        goals.Add(s1, 1);
     }
 }

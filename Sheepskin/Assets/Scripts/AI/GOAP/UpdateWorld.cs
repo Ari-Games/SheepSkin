@@ -10,7 +10,7 @@ public class UpdateWorld : MonoBehaviour
     
     private void Start() 
     {
-        InvokeRepeating("AddSheepAwayState",1,2);
+        //InvokeRepeating("AddSheepAwayState",1,2);
     }
     void LateUpdate()
     {
@@ -27,7 +27,7 @@ public class UpdateWorld : MonoBehaviour
 
     void AddSheepAwayState()
     {
-        if(Random.Range(1,6) == 1 && !GWorld.Instance.GetWorld().HasState("Away"))
+        if(Random.Range(1,8) == 1 && !GWorld.Instance.GetWorld().HasState("Away"))
         {
             print("AWAY!");
             var point = GameObject.FindGameObjectWithTag("Away");

@@ -44,6 +44,11 @@ namespace Goap
         [SerializeField]
         Rigidbody2D rBody = new Rigidbody2D();
 
+        [SerializeField]
+        private float distanceForComplete = 2f;
+
+        public bool isAgentStop = true;
+
         // Start is called before the first frame update
         public void Start() {
 
@@ -74,9 +79,10 @@ namespace Goap
                 float distanceToTarget = Vector2.Distance(destination, this.transform.position);
                 
                 // Check the agent has a goal and has reached that goal
-                if (distanceToTarget < 2f) { // currentAction.agent.remainingDistance < 1.0f) 
+                if (distanceToTarget < distanceForComplete) { // currentAction.agent.remainingDistance < 1.0f) 
                     ///
-                    currentAction.agent.isStopped = true;
+                    if(isAgentStop)
+                        currentAction.agent.isStopped = true;
                     ///
                     if (!invoked) {
                         //if the action movement is complete wait
