@@ -1,4 +1,4 @@
-﻿#define DEBUG_LOG
+﻿//#define DEBUG_LOG
 using System;
 using System.CodeDom;
 using System.Collections;
@@ -20,31 +20,34 @@ public class MoveController : MonoBehaviour
 
     void Update()
     {
-       
+        MovementLogic();
+
+    }
+
+    private void MovementLogic()
+    {
         float v = Joystick.Vertical; //get the vertical value of joystick
         float h = Joystick.Horizontal;//get the horizontal value of joystick
 
-        if (v==0 && h == 0)
+        if (v == 0 && h == 0)
         {
             Stop();
         }
         else
         {
             Walk();
-            
-            Vector3 translate = (new Vector3(h, v, 0) * Time.deltaTime) * Speed;            
-            Vector3 lookPos = new Vector3(h,v,0);
-            
+
+            Vector3 translate = (new Vector3(h, v, 0) * Time.deltaTime) * Speed;
+            Vector3 lookPos = new Vector3(h, v, 0);
+
             float angle = Mathf.Acos((new Vector3(h, v, 0)).normalized.x) * Mathf.Rad2Deg;
-            int rotateSign = - Math.Sign(Vector3.Cross(Vector3.forward, lookPos).x);
-            HeroSprite.transform.rotation = Quaternion.AngleAxis(rotateSign*angle - 90 , Vector3.forward); 
+            int rotateSign = -Math.Sign(Vector3.Cross(Vector3.forward, lookPos).x);
+            HeroSprite.transform.rotation = Quaternion.AngleAxis(rotateSign * angle - 90, Vector3.forward);
 #if DEBUG_LOG
             Debug.DrawRay(transform.position, lookPos);
-            
 #endif
             transform.Translate(translate);
         }
-        
     }
 
     private void Walk()
