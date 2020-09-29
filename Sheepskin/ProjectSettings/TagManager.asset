@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Away
   - Flock
   - Sheep
+  - Rest
+  - Path
+  - Flower
   layers:
   - Default
   - TransparentFX

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Goap;
 using UnityEngine;
 
-public class GoAway : GAction
+public class GoToFlower : GAction
 {
     public override bool PrePerform()
     {
-        target = GWorld.Instance.GetQueue("awayPoints").RemoveResource();
-       // GWorld.Instance.GetWorld().ModifyState("Away", -1);
+        target = GWorld.Instance.GetQueue("flowers").RemoveResource();
         if (target == null)
             return false;
 
@@ -17,16 +16,16 @@ public class GoAway : GAction
            GetComponent<Flocking.Flock>().enabled = false;
         }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        // GetComponent<Rigidbody2D>().simulated = false;
         
         return true;
     }
 
     public override bool PostPerform()
     {
-        GWorld.Instance.GetWorld().ModifyState("Away", -1);
+        GWorld.Instance.GetWorld().ModifyState("FreeFlower", -1);
+        target.SetActive(false);
+        beliefs.RemoveState("isHungry");
         GetComponent<Flocking.Flock>().enabled = true;
-        // GetComponent<Rigidbody2D>().simulated = true;
         return true;
     }
 }

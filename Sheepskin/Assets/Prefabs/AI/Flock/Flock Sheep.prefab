@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2247381521064727943}
   - component: {fileID: 2247381521064727942}
-  - component: {fileID: 2247381521064727937}
   - component: {fileID: 2247381521064727930}
   - component: {fileID: 2247381521064727931}
   - component: {fileID: 2247381521064727928}
@@ -90,21 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2247381521064727937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2247381521064727936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!50 &2247381521064727930
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +133,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1.5
+  m_Speed: 1
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -198,19 +182,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2247381521064727936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6177d72d9b2a02c41aca09351346d47e, type: 3}
+  m_Script: {fileID: 11500000, guid: a9404d67fe995ed40bbfacba9cca340f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Action
+  actionName: GoToFlower
   cost: 1
   target: {fileID: 0}
-  targetTag: Away
-  duration: 5
+  targetTag: 
+  duration: 0
   preConditions:
-  - key: Away
+  - key: FreeFlower
+    value: 0
+  - key: isHungry
     value: 0
   afterEffects:
-  - key: goAway
+  - key: goToFlower
     value: 0
   agent: {fileID: 0}
   running: 0
@@ -229,3 +215,5 @@ MonoBehaviour:
   actions: []
   currentAction: {fileID: 0}
   rBody: {fileID: 0}
+  distanceForComplete: 2
+  isAgentStop: 1

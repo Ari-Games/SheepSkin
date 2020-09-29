@@ -56,8 +56,9 @@ namespace Goap
         // Our world states
         private static WorldStates world;
         // Queue of patients
-        private static ResourceQueue awayPoints;
-    
+        private static ResourceQueue flowers;
+        private static ResourceQueue restPoints;
+        private static ResourceQueue patrolPaths;
 
         private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
 
@@ -65,16 +66,14 @@ namespace Goap
         {
             // Create our world
             world = new WorldStates();
-            awayPoints = new ResourceQueue("","",world); 
-            resources.Add("awayPoints",awayPoints);
-            // cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
-            // resources.Add("cubicles", cubicles);
-            // offices = new ResourceQueue("Office", "FreeOffice", world);
-            // resources.Add("offices", offices);
-            // toilets = new ResourceQueue("Toilet", "FreeToilet", world);
-            // resources.Add("toilets", toilets);
-            // puddles = new ResourceQueue("", "", world);
-            // resources.Add("puddles", puddles);
+            flowers = new ResourceQueue("","",world); 
+            resources.Add("flowers",flowers);
+
+            restPoints = new ResourceQueue("", "", world);
+            resources.Add("restPoints", restPoints);
+            
+            patrolPaths = new ResourceQueue("Path", "FreePath", world);
+            resources.Add("patrolPaths", patrolPaths);
         }
 
         public ResourceQueue GetQueue(string type)
