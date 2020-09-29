@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Goap;
-using UnityEngine.AI;
 
-public class Finding : GAction
+public class GoDoWork : GAction
 {
- 
-    
     public override bool PrePerform()
     {
-        GetComponent<ForPatrol>().enabled = false;
+        print("PrePerform");
+        beliefs.RemoveState("canGiveOrder");
         return true;
     }
 
     public override bool PostPerform()
     {
-        //  print("PostPerform");
-        beliefs.ModifyState("isPatrolTime", 1);
+        print("PostPerform");
+        beliefs.ModifyState("canGiveOrder", 1);
+        beliefs.RemoveState("work");
         return true;
     }
 

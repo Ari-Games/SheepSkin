@@ -13,10 +13,8 @@ GameObject:
   - component: {fileID: 4120048933252344964}
   - component: {fileID: 4120048933252344965}
   - component: {fileID: 4120048933252344966}
-  - component: {fileID: 4120048933252344967}
   - component: {fileID: 4120048933252344984}
   - component: {fileID: 4120048933252344985}
-  - component: {fileID: 4120048933252344986}
   m_Layer: 0
   m_Name: Sheepherd
   m_TagString: Untagged
@@ -149,31 +147,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4120048933252344967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4120048933252344961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2770914fa5b8f964abf8d7df05707dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: Action
-  cost: 1
-  target: {fileID: 0}
-  targetTag: 
-  duration: 0
-  preConditions:
-  - key: isPatrolTime
-    value: 0
-  afterEffects:
-  - key: goPatrol
-    value: 0
-  agent: {fileID: 0}
-  running: 0
 --- !u!114 &4120048933252344984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,20 +156,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4120048933252344961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b954368a1ed2a9d458eb771b959f80f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f3de23c906ccce4f9432613319ad46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Action
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 2
-  preConditions:
-  - key: Away
-    value: 0
-  afterEffects:
-  - key: goFinding
-    value: 0
+  duration: 0
+  preConditions: []
+  afterEffects: []
   agent: {fileID: 0}
   running: 0
 --- !u!114 &4120048933252344985
@@ -212,18 +181,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 4120048933252344965}
---- !u!114 &4120048933252344986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4120048933252344961}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24afd31ea0cefe149b06ffbc1c9059b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementPath: {fileID: 0}
-  currentPoint: 1
-  countOfPoints: 0

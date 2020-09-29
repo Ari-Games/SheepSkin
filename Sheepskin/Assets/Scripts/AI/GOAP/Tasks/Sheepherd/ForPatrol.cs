@@ -10,7 +10,7 @@ public class ForPatrol : MonoBehaviour
     Transform movementPath = null;
     public int currentPoint = 1;
     public int countOfPoints = 0;
-
+  
     
     private void Awake() 
     {
@@ -20,6 +20,9 @@ public class ForPatrol : MonoBehaviour
     // Start is called before the first frame update
     private void Update() 
     {
+       
+        if (GetComponent<Shepherd>().currentAction.actionName != "Patrol")
+            this.enabled = false;
         PatrolWalking();
     }
 
@@ -38,8 +41,6 @@ public class ForPatrol : MonoBehaviour
             if (currentPoint == countOfPoints)
                 currentPoint = 1;
         }
-
-
     }
    
 }

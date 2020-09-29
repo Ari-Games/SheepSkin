@@ -13,8 +13,8 @@ public class Test : MonoBehaviour
     
     public void OnAwayAdd()
     {
-        var point = GameObject.FindGameObjectWithTag("Away");
-        GWorld.Instance.GetQueue("awayPoints").AddResource(point);
+        var awayPoint = GameObject.FindGameObjectWithTag("Away");
+        GWorld.Instance.GetQueue("awayPoints").AddResource(awayPoint);
         GWorld.Instance.GetWorld().ModifyState("Away", 1);
     }
 }

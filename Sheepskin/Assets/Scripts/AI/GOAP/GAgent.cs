@@ -44,10 +44,12 @@ namespace Goap
         [SerializeField]
         Rigidbody2D rBody = new Rigidbody2D();
 
-        [SerializeField]
-        private float distanceForComplete = 2f;
+        // [SerializeField]
+        public float distanceForComplete = 2f;
 
         public bool isAgentStop = true;
+
+
 
         // Start is called before the first frame update
         public void Start() {
