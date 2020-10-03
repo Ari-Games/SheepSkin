@@ -8523,6 +8523,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6683499645749395174, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d5741cc27b647340a0b614235b51f3c, type: 2}
     - target: {fileID: 6683499645749395176, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.54
@@ -8571,6 +8575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Woolf
       objectReference: {fileID: 0}
+    - target: {fileID: 6683499645749395178, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6683499645749395179, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_Size.x
       value: 48.22
@@ -8589,28 +8597,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953604, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953604, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953604, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.18874654
+      value: 0.06352123
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953604, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.17251357
+      value: 0.05805815
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953604, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.31064105
+      value: 0.10454392
       objectReference: {fileID: 0}
     - target: {fileID: 6683499646200953605, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0fbc119abac146d41a695dc53167f71d, type: 3}
+      objectReference: {fileID: 21300000, guid: 29584485107bade458f8832e405ce75a, type: 3}
     - target: {fileID: 6683499646200953605, guid: b5a34ee061c2f9c4cabc9ece00d897f7, type: 3}
       propertyPath: m_Color.a
       value: 1
