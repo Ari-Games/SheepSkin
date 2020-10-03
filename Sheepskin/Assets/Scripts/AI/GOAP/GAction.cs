@@ -2,97 +2,100 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class GAction : MonoBehaviour {
+namespace Goap
+{
+    public abstract class GAction : MonoBehaviour {
 
-    // Name of the action
-    public string actionName = "Action";
-    // Cost of the action
-    public float cost = 1.0f;
-    // Target where the action is going to take place
-    public GameObject target;
-    // Store the tag
-    public string targetTag;
-    // Duration the action should take
-    public float duration = 0.0f;
-    // An array of WorldStates of preconditions
-    public WorldState[] preConditions;
-    // An array of WorldStates of afterEffects
-    public WorldState[] afterEffects;
-    // The NavMEshAgent attached to the agent
-    public NavMeshAgent agent;
-    // Dictionary of preconditions
-    public Dictionary<string, int> preconditions;
-    // Dictionary of effects
-    public Dictionary<string, int> effects;
-    // State of the agent
-    public WorldStates agentBeliefs;
-    // Access our inventory
-    public GInventory inventory;
+        // Name of the action
+        public string actionName = "Action";
+        // Cost of the action
+        public float cost = 1.0f;
+        // Target where the action is going to take place
+        public GameObject target;
+        // Store the tag
+        public string targetTag;
+        // Duration the action should take
+        public float duration = 0.0f;
+        // An array of WorldStates of preconditions
+        public WorldState[] preConditions;
+        // An array of WorldStates of afterEffects
+        public WorldState[] afterEffects;
+        // The NavMEshAgent attached to the agent
+        public NavMeshAgent agent;
+        // Dictionary of preconditions
+        public Dictionary<string, int> preconditions;
+        // Dictionary of effects
+        public Dictionary<string, int> effects;
+        // State of the agent
+        public WorldStates agentBeliefs;
+        // Access our inventory
+        public GInventory inventory;
 
-    public WorldStates beliefs;
-    // Are we currently performing an action?
-    public bool running = false;
+        public WorldStates beliefs;
+        // Are we currently performing an action?
+        public bool running = false;
 
-    // Constructor
-    public GAction() {
+        // Constructor
+        public GAction() {
 
-        // Set up the preconditions and effects
-        preconditions = new Dictionary<string, int>();
-        effects = new Dictionary<string, int>();
-    }
-
-    private void Awake() {
-
-        // Get hold of the agents NavMeshAgent
-        agent = this.gameObject.GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        // Check if there are any preConditions in the Inspector
-        // and add to the dictionary
-        if (preConditions != null) {
-
-            foreach (WorldState w in preConditions) {
-
-                // Add each item to our Dictionary
-                preconditions.Add(w.key, w.value);
-            }
+            // Set up the preconditions and effects
+            preconditions = new Dictionary<string, int>();
+            effects = new Dictionary<string, int>();
         }
 
-        // Check if there are any afterEffects in the Inspector
-        // and add to the dictionary
-        if (afterEffects != null) {
+        private void Awake() {
 
-            foreach (WorldState w in afterEffects) {
+            // Get hold of the agents NavMeshAgent
+            agent = this.gameObject.GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+            // Check if there are any preConditions in the Inspector
+            // and add to the dictionary
+            if (preConditions != null) {
 
-                // Add each item to our Dictionary
-                effects.Add(w.key, w.value);
+                foreach (WorldState w in preConditions) {
+
+                    // Add each item to our Dictionary
+                    preconditions.Add(w.key, w.value);
+                }
             }
+
+            // Check if there are any afterEffects in the Inspector
+            // and add to the dictionary
+            if (afterEffects != null) {
+
+                foreach (WorldState w in afterEffects) {
+
+                    // Add each item to our Dictionary
+                    effects.Add(w.key, w.value);
+                }
+            }
+            // Populate our inventory
+            inventory = GetComponent<GAgent>().inventory;
+            // Get our agents beliefs
+            beliefs = this.GetComponent<GAgent>().beliefs;
         }
-        // Populate our inventory
-        inventory = GetComponent<GAgent>().inventory;
-        // Get our agents beliefs
-        beliefs = this.GetComponent<GAgent>().beliefs;
-    }
 
-    public bool IsAchievable() {
+        public bool IsAchievable() {
 
-        return true;
-    }
+            return true;
+        }
 
-    //check if the action is achievable given the condition of the
-    //world and trying to match with the actions preconditions
-    public bool IsAhievableGiven(Dictionary<string, int> conditions) {
+        //check if the action is achievable given the condition of the
+        //world and trying to match with the actions preconditions
+        public bool IsAhievableGiven(Dictionary<string, int> conditions) {
 
-        foreach (KeyValuePair<string, int> p in preconditions) 
-        {
-            if (!conditions.ContainsKey(p.Key)) 
+            foreach (KeyValuePair<string, int> p in preconditions) 
             {
-                return false;
+                if (!conditions.ContainsKey(p.Key)) 
+                {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
-    }
 
-    public abstract bool PrePerform();
-    public abstract bool PostPerform();
+        public abstract bool PrePerform();
+        public abstract bool PostPerform();
+    }
 }
