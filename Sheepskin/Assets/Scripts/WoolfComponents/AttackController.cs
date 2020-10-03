@@ -10,7 +10,13 @@ public class AttackController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+    }
     public void Attack()
     {
         SetAnimation("attack");
