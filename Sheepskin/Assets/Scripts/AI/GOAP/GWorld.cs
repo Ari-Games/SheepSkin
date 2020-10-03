@@ -59,6 +59,7 @@ namespace Goap
         private static ResourceQueue flowers;
         private static ResourceQueue restPoints;
         private static ResourceQueue patrolPaths;
+        private static ResourceQueue bloodSteps;
 
         private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
 
@@ -74,6 +75,9 @@ namespace Goap
             
             patrolPaths = new ResourceQueue("Path", "FreePath", world);
             resources.Add("patrolPaths", patrolPaths);
+
+            bloodSteps = new ResourceQueue("", "",world);
+            resources.Add("bloodSteps", bloodSteps);
         }
 
         public ResourceQueue GetQueue(string type)

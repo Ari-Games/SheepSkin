@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2247381521064727934}
   - component: {fileID: 1914387227}
   - component: {fileID: 1914387228}
+  - component: {fileID: 5236859848691355837}
   m_Layer: 0
   m_Name: Flock Sheep
   m_TagString: Sheep
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 2247381521064727936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.91, y: 2.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.16556017, y: 0.17250678, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a3dde001bc3076e4ca0998fe4d32ade3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78d45013b6a1c4d4faa35ee949bd6ace, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 1914387228}
+  beliefStateKey: []
+  beliefStateValue: 
 --- !u!195 &2247381521064727928
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ NavMeshAgent:
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -159,7 +162,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.77, y: 0.77}
+  m_Size: {x: 3.57, y: 5.52}
   m_Direction: 0
 --- !u!114 &2247381521064727934
 MonoBehaviour:
@@ -189,7 +192,7 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 0
+  duration: 2
   preConditions:
   - key: FreeFlower
     value: 0
@@ -200,6 +203,7 @@ MonoBehaviour:
     value: 0
   agent: {fileID: 0}
   running: 0
+  isNonTarget: 0
 --- !u!114 &1914387228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,5 +219,31 @@ MonoBehaviour:
   actions: []
   currentAction: {fileID: 0}
   rBody: {fileID: 0}
-  distanceForComplete: 2
+  distanceForComplete: 1
   isAgentStop: 1
+--- !u!114 &5236859848691355837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247381521064727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6413bc0785dab844eace2b0739fdeb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: TimeToBeBeast
+    value: 0
+  afterEffects:
+  - key: findWolf
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+  isNonTarget: 1

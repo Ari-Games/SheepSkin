@@ -28,29 +28,23 @@ namespace Flocking
             if (controller)
             {
                 Vector2 relativePos = Steer() * Time.deltaTime;
-                
+
+                RotateToTarget();
+
                 if (relativePos != Vector2.zero)
                 {
                     rigidbody.velocity = relativePos;
                     agent.isStopped = false;
                     agent.SetDestination(controller.target.position);
                 }
-
-
-
-                // // enforce minimum and maximum speeds for the boids
-                // float speed = rigidbody.velocity.magnitude;
-                // if (speed > controller.maxVelocity)
-                // {
-                //     rigidbody.velocity = rigidbody.velocity.normalized *
-                //     controller.maxVelocity;
-                // }
-                // else if (speed < controller.minVelocity)
-                // {
-                //     rigidbody.velocity = rigidbody.velocity.normalized *
-                //     controller.minVelocity;
-                // }
             }
+        }
+
+        private void RotateToTarget()
+        {
+            Vector3 dir = controller.target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90), Time.deltaTime * 5);
         }
 
         private float DistanceToTarget(Vector3 targetMovement)

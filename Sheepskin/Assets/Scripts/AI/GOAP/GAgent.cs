@@ -86,7 +86,8 @@ namespace Goap
                     if(isAgentStop)
                         currentAction.agent.isStopped = true;
                     ///
-                    if (!invoked) {
+                    if (!invoked)
+                    {
                         //if the action movement is complete wait
                         //a certain duration for it to be completed
                         Invoke("CompleteAction", currentAction.duration);

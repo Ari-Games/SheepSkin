@@ -20,7 +20,8 @@ public class Shepherd : GAgent
         SubGoal s3 = new SubGoal("doneWork", 1, false);
         goals.Add(s3, 2);
 
-        beliefs.ModifyState("canGiveOrder", 1);
+        //beliefs.ModifyState("canGiveOrder", 1);
+        //GWorld.Instance.GetWorld().ModifyState("CanGiveOrder",1);
         InvokeRepeating("GoRest", Random.Range(60, 65), Random.Range(60, 70));
         InvokeRepeating("GoWork", Random.Range(30, 40), Random.Range(30, 40));
     }
