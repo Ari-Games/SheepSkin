@@ -54,9 +54,7 @@ public class MoveController : MonoBehaviour
             Walk();
             v += 0.0002f;
             _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(h, v) * Time.fixedDeltaTime*Speed);
-            //_rigidbody2D.velocity = new Vector2(h, v) * 1000;
-            //_rigidbody2D.AddForce(new Vector3(1000 * Time.deltaTime, 0, 0),ForceMode2D.Force);
-            //_rigidbody2D.angularVelocity = 1000;
+           
             Vector3 translate = (new Vector3(h, v, 0) * Time.deltaTime) * Speed;
             Vector3 lookPos = new Vector3(h, v, 0);
 
