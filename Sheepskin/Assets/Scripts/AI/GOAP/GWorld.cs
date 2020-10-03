@@ -62,6 +62,7 @@ namespace Goap
         private static ResourceQueue bloodSteps;
 
         private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
+        private static Vector2 lastWolfPosition = new Vector2(0,0);
 
         static GWorld() 
         {
@@ -87,6 +88,16 @@ namespace Goap
         private GWorld() 
         {
 
+        }
+
+        public Vector2 GetLastWolfPosition()
+        {
+            return lastWolfPosition;
+        }
+
+        public void SetLastWolfPosition(Vector2 wolfPosition)
+        {
+            lastWolfPosition = wolfPosition;
         }
 
         public static GWorld Instance {

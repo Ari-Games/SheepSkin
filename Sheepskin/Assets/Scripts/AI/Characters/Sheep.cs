@@ -22,12 +22,11 @@ public class Sheep : GAgent
     }
     private void Update()
     {
-        // if (DistanceFromWolf() && !GWorld.Instance.GetWorld().HasState("BewareDogs"))
-        // {
-        //     GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
-        // }
-
-
+        if (DistanceFromWolf() && !GWorld.Instance.GetWorld().HasState("BewareDogs"))
+        {
+            GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
+            GWorld.Instance.SetLastWolfPosition(wolf.transform.position);
+        }
     }
 
     public void ChangeSpeed(float speedNav)
