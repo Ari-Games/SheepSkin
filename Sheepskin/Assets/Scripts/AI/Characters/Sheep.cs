@@ -14,6 +14,7 @@ public class Sheep : GAgent
     float distanceFromWolf = 1f;
     new void Start()
     {
+        wolf = GameObject.FindWithTag("Player");
         base.Start();
         SubGoal s1 = new SubGoal("goToFlower", 1, false);
         goals.Add(s1, 1);
