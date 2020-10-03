@@ -47,7 +47,15 @@ public class UpdateWorld : MonoBehaviour
 
     private void InstantFlower()
     {
-        var instant = flowers[Random.Range(0,flowers.Length-1)];
+        var indexOfFlower = Random.Range(0, flowers.Length - 1);
+        var instant = flowers[indexOfFlower];
+        if(instant.activeSelf)
+        {
+            indexOfFlower += 1;
+            if(indexOfFlower > flowers.Length-1)
+                indexOfFlower = 0;
+            instant = flowers[indexOfFlower];
+        }
         instant.SetActive(true);
         GWorld.Instance.GetWorld().ModifyState("FreeFlower",1);
         GWorld.Instance.GetQueue("flowers").AddResource(instant);

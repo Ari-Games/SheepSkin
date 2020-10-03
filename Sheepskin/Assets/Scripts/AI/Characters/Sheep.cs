@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Goap;
+using UnityEngine.AI;
 
 public class Sheep : GAgent
 {
@@ -25,6 +26,13 @@ public class Sheep : GAgent
         // {
         //     GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
         // }
+
+
+    }
+
+    public void ChangeSpeed(float speedNav)
+    {
+        GetComponent<NavMeshAgent>().speed = speedNav;
     }
 
     private bool DistanceFromWolf()
@@ -37,6 +45,8 @@ public class Sheep : GAgent
     {
         Destroy(gameObject,2f);
     }
+
+
     private void TimeToHungry()
     {
         if(!beliefs.HasState("isHungry"))
