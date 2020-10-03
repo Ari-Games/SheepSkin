@@ -35,6 +35,7 @@ namespace Goap
         // Are we currently performing an action?
         public bool running = false;
 
+        public bool isNonTarget = false;
         // Constructor
         public GAction() {
 

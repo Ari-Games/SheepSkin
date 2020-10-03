@@ -15,6 +15,7 @@ public class FlockMover : GAgent
         SubGoal s2 = new SubGoal("timeToEat", 1, false);
         goals.Add(s2, 1);
 
+
         InvokeRepeating("TimeToEat", Random.Range(15, 30), Random.Range(15, 30));
     }
 

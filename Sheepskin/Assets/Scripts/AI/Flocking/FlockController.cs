@@ -25,6 +25,7 @@ namespace Flocking
         internal Vector2 flockVelocity; //Average Velocity
         public ArrayList flockList = new ArrayList();
 
+
         void Start()
         {
             for (int i = 0; i < flockSize; i++)
@@ -62,6 +63,7 @@ namespace Flocking
             }
             flockCenter = center / flockSize;
             flockVelocity = velocity / flockSize;
+           
         }
     }
 }

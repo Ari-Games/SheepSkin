@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2247381521064727934}
   - component: {fileID: 1914387227}
   - component: {fileID: 1914387228}
+  - component: {fileID: 5236859848691355837}
   m_Layer: 0
   m_Name: Flock Sheep
   m_TagString: Sheep
@@ -123,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 1914387228}
+  beliefStateKey: []
+  beliefStateValue: 
 --- !u!195 &2247381521064727928
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ NavMeshAgent:
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -189,7 +192,7 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 0
+  duration: 2
   preConditions:
   - key: FreeFlower
     value: 0
@@ -200,6 +203,7 @@ MonoBehaviour:
     value: 0
   agent: {fileID: 0}
   running: 0
+  isNonTarget: 0
 --- !u!114 &1914387228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,5 +219,31 @@ MonoBehaviour:
   actions: []
   currentAction: {fileID: 0}
   rBody: {fileID: 0}
-  distanceForComplete: 2
+  distanceForComplete: 1
   isAgentStop: 1
+--- !u!114 &5236859848691355837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247381521064727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6413bc0785dab844eace2b0739fdeb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: TimeToBeBeast
+    value: 0
+  afterEffects:
+  - key: findWolf
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+  isNonTarget: 1
