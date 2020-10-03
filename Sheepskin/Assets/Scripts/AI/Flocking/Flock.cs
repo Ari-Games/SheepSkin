@@ -37,21 +37,6 @@ namespace Flocking
                     agent.isStopped = false;
                     agent.SetDestination(controller.target.position);
                 }
-
-
-
-                // // enforce minimum and maximum speeds for the boids
-                // float speed = rigidbody.velocity.magnitude;
-                // if (speed > controller.maxVelocity)
-                // {
-                //     rigidbody.velocity = rigidbody.velocity.normalized *
-                //     controller.maxVelocity;
-                // }
-                // else if (speed < controller.minVelocity)
-                // {
-                //     rigidbody.velocity = rigidbody.velocity.normalized *
-                //     controller.minVelocity;
-                // }
             }
         }
 
