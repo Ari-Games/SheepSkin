@@ -10,8 +10,8 @@ public class Sheep : GAgent
 
     [SerializeField]
     GameObject wolf = null;
-    [SerializeField]
-    float distanceFromWolf = 1f;
+    
+    public float distanceFromWolf = 1f;
     new void Start()
     {
         wolf = GameObject.FindWithTag("Player");
@@ -55,6 +55,6 @@ public class Sheep : GAgent
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawSphere(transform.position, 1f);
+        Gizmos.DrawSphere(transform.position, distanceFromWolf);
     }
 }

@@ -25,6 +25,9 @@ public class ForPatrol : MonoBehaviour
     float speedForChangeOnCalm = 1f;
 
     [SerializeField]
+    float standartDistFromWolf = 2f;
+
+    [SerializeField]
     Flocking.FlockController flockController = null;
 
     private void Awake() 
@@ -46,6 +49,7 @@ public class ForPatrol : MonoBehaviour
             foreach(var sheep in GameObject.FindObjectsOfType<Sheep>())
             {
                 sheep.ChangeSpeed(speedForChangeOnRage);
+                sheep.distanceFromWolf = standartDistFromWolf * 2;
             }
 
             if(flockController.separationWeight < rageSeparation && (timer > timeToChange)) 
@@ -61,6 +65,7 @@ public class ForPatrol : MonoBehaviour
             foreach (var sheep in GameObject.FindObjectsOfType<Sheep>())
             {
                 sheep.ChangeSpeed(speedForChangeOnCalm);
+                sheep.distanceFromWolf  = standartDistFromWolf;
             }
             flockController.separationWeight = standartSeparation;
         }
