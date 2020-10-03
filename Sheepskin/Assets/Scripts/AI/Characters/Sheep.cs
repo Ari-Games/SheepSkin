@@ -36,8 +36,7 @@ public class Sheep : GAgent
     }
 
     private bool DistanceFromWolf()
-    {
-        
+    {    
         return Vector2.Distance(transform.position, wolf.transform.position) < distanceFromWolf;
     }
 
