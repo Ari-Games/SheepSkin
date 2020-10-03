@@ -7,10 +7,11 @@ public class DayNightManager : MonoBehaviour
 {
     [SerializeField] private Light2D sun;
     [SerializeField] private GameObject allLightsOnScene;
-    [SerializeField] public static float secondsInFullDay = 60f;
     [SerializeField] private float currentTimeOfDay = 0f;
-    [SerializeField] private float deltaIntensityOfSun;
-    [SerializeField] private float deltaIntensityOfAllLights;
+    [SerializeField] public static float secondsInFullDay = 60f;
+
+    private float deltaIntensityOfSun;
+    private float deltaIntensityOfAllLights;
 
     private const float BEGIN_SUN_INTENSITY = 1f;
     private const float END_SUN_INTENSITY = 0.35f;
