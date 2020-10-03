@@ -6539,6 +6539,36 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1902876660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902876661}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902876661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902876660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.07, y: 1.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086428270
 GameObject:
   m_ObjectHideFlags: 0
@@ -6603,17 +6633,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914387228, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
+      propertyPath: wolf
+      value: 
+      objectReference: {fileID: 1902876660}
     - target: {fileID: 2247381521064727936, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_Name
       value: Flock Sheep
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.14
+      value: -10.04
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.68
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6629,11 +6663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.06731874
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99773157
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_RootOrder
@@ -6649,7 +6683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2247381521064727943, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -7.72
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5236859848691355837, guid: e6eacaef47198c943a4642baf3ddfd12, type: 3}

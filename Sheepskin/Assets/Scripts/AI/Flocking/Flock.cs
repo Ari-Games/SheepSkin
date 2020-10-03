@@ -28,7 +28,9 @@ namespace Flocking
             if (controller)
             {
                 Vector2 relativePos = Steer() * Time.deltaTime;
-                
+                Vector3 dir = controller.target.position - transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
                 if (relativePos != Vector2.zero)
                 {
                     rigidbody.velocity = relativePos;

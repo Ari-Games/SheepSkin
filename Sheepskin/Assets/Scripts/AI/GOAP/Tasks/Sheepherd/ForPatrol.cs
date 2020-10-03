@@ -12,7 +12,7 @@ public class ForPatrol : MonoBehaviour
     public int countOfPoints = 0;
     
     float standartSeparation = 14f;
-    float rageSeparation = 40f;
+    float rageSeparation = 55f;
 
     float timer = 0f;
     float timeToChange = 0.5f;
