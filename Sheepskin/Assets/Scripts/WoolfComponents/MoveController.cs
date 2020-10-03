@@ -30,6 +30,7 @@ public class MoveController : MonoBehaviour
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
+        
 #if MOBILE_ANDROID_IOS
 
         v = Joystick.Vertical; //get the vertical value of joystick
@@ -42,13 +43,13 @@ public class MoveController : MonoBehaviour
         else
         {
             Walk();
-
+            v += 0.0002f;
             Vector3 translate = (new Vector3(h, v, 0) * Time.deltaTime) * Speed;
             Vector3 lookPos = new Vector3(h, v, 0);
 
             float angle = Mathf.Acos((new Vector3(h, v, 0)).normalized.x) * Mathf.Rad2Deg;
             int rotateSign = -Math.Sign(Vector3.Cross(Vector3.forward, lookPos).x);
-            HeroSprite.transform.rotation = Quaternion.AngleAxis(rotateSign * angle - 90, Vector3.forward);
+            HeroSprite.transform.rotation = Quaternion.AngleAxis(rotateSign*angle -  90, Vector3.forward);
 #if DEBUG_LOG
             Debug.DrawRay(transform.position, lookPos);
 #endif
