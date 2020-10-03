@@ -1,4 +1,5 @@
 ﻿//#define DEBUG_LOG
+//#define MOBILE_ANDROID_IOS
 using System;
 using System.CodeDom;
 using System.Collections;
@@ -8,8 +9,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class MoveController : MonoBehaviour
 {
+#if MOBILE_ANDROID_IOS
     [SerializeField] private bl_Joystick Joystick;
-
+#endif
     [SerializeField] private float Speed = 5;
     Animator _animator;
     [SerializeField] GameObject HeroSprite; 
@@ -26,9 +28,13 @@ public class MoveController : MonoBehaviour
 
     private void MovementLogic()
     {
-        float v = Joystick.Vertical; //get the vertical value of joystick
-        float h = Joystick.Horizontal;//get the horizontal value of joystick
+        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
+#if MOBILE_ANDROID_IOS
 
+        v = Joystick.Vertical; //get the vertical value of joystick
+        h = Joystick.Horizontal;//get the horizontal value of joystick
+#endif
         if (v == 0 && h == 0)
         {
             Stop();
