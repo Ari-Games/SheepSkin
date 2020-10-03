@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 529336600, guid: 289bab7cc27a12745b5df9b71d7b06c4, type: 3}
+  m_Name: Flower_Atlas
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 251fc89da7e2444e69bd8612a6f262fb, type: 2}
+  uvs:
+  - x: 0
+    y: 0
+    width: 0.515625
+    height: 0.46484375
+  - x: 0.5175781
+    y: 0
+    width: 0.38476562
+    height: 0.33203125
+  - x: 0.9042969
+    y: 0.080078125
+    width: 0.052734375
+    height: 0.076171875
+  - x: 0.5175781
+    y: 0.33398438
+    width: 0.19726562
+    height: 0.1171875
+  - x: 0
+    y: 0.46679688
+    width: 0.16210938
+    height: 0.20117188
+  - x: 0.9042969
+    y: 0
+    width: 0.052734375
+    height: 0.078125
+  - x: 0.7167969
+    y: 0.33398438
+    width: 0.2109375
+    height: 0.07421875
+  textureGUIDs:
+  - 026e91d8681694161a6da551b5c2f57e
+  - 39c09e2d5fe55420c8cae5e531d0d170
+  - 5b51dbdf4cf1e4d9abe02db47f3f7c08
+  - 5be3323ea0dd947479c738bcc8f6f7d7
+  - 731a061406f0145cd9763cba83945fd4
+  - 9ff2a46d0bb9143fda174c246319947f
+  - ab18b4171d5724265b60e886e359b9d8
+  textureSizes:
+  - {x: 264, y: 238}
+  - {x: 197, y: 170}
+  - {x: 27, y: 39}
+  - {x: 101, y: 60}
+  - {x: 83, y: 103}
+  - {x: 27, y: 40}
+  - {x: 108, y: 38}
+  defaultPivotOffsets:
+  - {x: 0, y: 0}
+  - {x: -0.0053571425, y: -0.31660712}
+  - {x: 0, y: 0}
+  - {x: 0.20357142, y: -0.46892858}
+  - {x: 0.2142857, y: -0.46622744}
+  - {x: 0, y: 0}
+  - {x: 0.032142855, y: -0.39586464}
+  textureNames:
+  - hair
+  - head
+  - eye_R
+  - mouse
+  - leg
+  - eye_L
+  - foot
+  texturePaths:
+  - Assets/GS Ani/FlowerAnimation/Assets/hair.png
+  - Assets/GS Ani/FlowerAnimation/Assets/head.png
+  - Assets/GS Ani/FlowerAnimation/Assets/eye_R.png
+  - Assets/GS Ani/FlowerAnimation/Assets/mouse.png
+  - Assets/GS Ani/FlowerAnimation/Assets/leg.png
+  - Assets/GS Ani/FlowerAnimation/Assets/eye_L.png
+  - Assets/GS Ani/FlowerAnimation/Assets/foot.png
+  lastBuildID: 2014101609261062
+  needsRebuilt: 0
+  dataVersion: 4
+  maxAtlasSize: 1024
+  padding: 1
+  forceSquare: 1

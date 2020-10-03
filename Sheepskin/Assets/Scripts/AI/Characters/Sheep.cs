@@ -21,14 +21,15 @@ public class Sheep : GAgent
     }
     private void Update()
     {
-        if (DistanceFromWolf() && !GWorld.Instance.GetWorld().HasState("BewareDogs"))
-        {
-            GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
-        }
+        // if (DistanceFromWolf() && !GWorld.Instance.GetWorld().HasState("BewareDogs"))
+        // {
+        //     GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
+        // }
     }
 
     private bool DistanceFromWolf()
     {
+        
         return Vector2.Distance(transform.position, wolf.transform.position) < distanceFromWolf;
     }
 

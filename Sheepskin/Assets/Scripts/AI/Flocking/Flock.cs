@@ -28,9 +28,9 @@ namespace Flocking
             if (controller)
             {
                 Vector2 relativePos = Steer() * Time.deltaTime;
-                Vector3 dir = controller.target.position - transform.position;
-                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
+
+                RotateToTarget();
+
                 if (relativePos != Vector2.zero)
                 {
                     rigidbody.velocity = relativePos;
@@ -53,6 +53,13 @@ namespace Flocking
                 //     controller.minVelocity;
                 // }
             }
+        }
+
+        private void RotateToTarget()
+        {
+            Vector3 dir = controller.target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90), Time.deltaTime * 5);
         }
 
         private float DistanceToTarget(Vector3 targetMovement)
