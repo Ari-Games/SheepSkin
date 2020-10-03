@@ -28,13 +28,15 @@ public class MoveController : MonoBehaviour
 
     private void MovementLogic()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-        
+
+
 #if MOBILE_ANDROID_IOS
 
-        v = Joystick.Vertical; //get the vertical value of joystick
-        h = Joystick.Horizontal;//get the horizontal value of joystick
+        float v = Joystick.Vertical; //get the vertical value of joystick
+        float h = Joystick.Horizontal;//get the horizontal value of joystick
+#else
+        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
 #endif
         if (v == 0 && h == 0)
         {
