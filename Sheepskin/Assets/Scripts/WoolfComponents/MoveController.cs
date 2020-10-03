@@ -24,11 +24,7 @@ public class MoveController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
-        //MovementLogic();
-
-    }
+  
     private void FixedUpdate()
     {
         MovementLogic();
@@ -65,7 +61,7 @@ public class MoveController : MonoBehaviour
 #if DEBUG_LOG
             Debug.DrawRay(transform.position, lookPos);
 #endif
-            //transform.Translate(translate);
+
         }
     }
 
