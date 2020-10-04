@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using Flocking;
+using Goap;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Level
 {
@@ -23,12 +25,28 @@ namespace Assets.Scripts.Level
         [SerializeField] private Sprite nightSheeps;
         [SerializeField] private FlockController flockController;
 
+        [SerializeField] private GameObject endGame;
+
         private void Start()
         {
             countSheepsText.text = flockController.flockSize.ToString();
             foreach (var task in tasks)
                 Debug.Log(task);
             StartCoroutine(ChangingOfTime());
+        }
+
+        private void Update()
+        {
+            if (countSheeps == 10)
+            {
+                endGame.SetActive(true);
+            }
+        }
+
+        private IEnumerator EndGame()
+        {
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(2);
         }
 
         private IEnumerator ChangingOfTime()

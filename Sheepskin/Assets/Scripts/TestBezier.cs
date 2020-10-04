@@ -3,13 +3,6 @@ using System.Collections;
 
 namespace Assets.Scripts
 {
-    enum States
-    {
-        Task1,
-        Task2,
-        Win,
-    }
-
     public class TestBezier : MonoBehaviour
     {
 
