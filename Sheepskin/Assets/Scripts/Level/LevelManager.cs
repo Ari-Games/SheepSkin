@@ -13,8 +13,8 @@ namespace Assets.Scripts.Level
 
         [SerializeField] private Text timeOfDayText;
         [SerializeField] private Text countSheepsText;
-        private const int countSecondsInDay = 86400;
-        private int startHour = 10;
+        [SerializeField] private int startHour = 10;
+        [SerializeField] private int countGameHour = 27;
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace Assets.Scripts.Level
 
         private IEnumerator ChangingOfTime()
         {
-            float step = countSecondsInDay / DayNightManager.secondsInFullDay;
+            float step = (countGameHour * 3600 - startHour * 3600) / DayNightManager.secondsInFullDay;
             float currentTime = 0f;
             for (int currentTimeInSeconds = 0; currentTimeInSeconds < DayNightManager.secondsInFullDay; currentTimeInSeconds++)
             {
