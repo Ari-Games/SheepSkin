@@ -44,14 +44,15 @@ public class Dog : MonoBehaviour
     void Update()
     {
         SetDogState();
-        if(dogState == DogState.Atack)
+        if (Vector2.Distance(transform.position, wolf.position) < 1)
+            GWorld.isLife = false;
+        if (dogState == DogState.Atack)
         {
             GetComponent<NavMeshAgent>().SetDestination(wolf.position);
             RotateToTarget(wolf.position);
             lastWolfPosAfterAttack = wolf.position;
             messageCloud.DoMessage();
             animator.SetTrigger("go");
-
         }
         else if (dogState == DogState.FindingAfterAtack)
         {

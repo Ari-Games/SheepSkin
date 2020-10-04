@@ -42,6 +42,11 @@ namespace Assets.Scripts.Level
                 endGame.SetActive(true);
                 StartCoroutine(EndGame());
             }
+            if (GWorld.isLife == false)
+            {
+                endGame.SetActive(true);
+                StartCoroutine(EndGame());
+            }
             countSheepsText.text = GWorld.sheepLeftCount.ToString();
         }
 
