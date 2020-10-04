@@ -33,6 +33,7 @@ namespace Assets.Scripts.Level
 
         private void Start()
         {
+            GameObject.FindGameObjectWithTag("Core").GetComponent<UpdateWorld>().PlayRandomClip();
             GWorld.isLife = true;
             countSheepsText.text = GWorld.sheepLeftCount.ToString();
             //foreach (var task in tasks)

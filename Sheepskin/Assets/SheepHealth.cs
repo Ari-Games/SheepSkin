@@ -17,6 +17,7 @@ public class SheepHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Goap.GWorld.sheepLeftCount -= 1;
+            GameObject.FindGameObjectWithTag("Core").GetComponent<UpdateWorld>().PlayRandomClip();
             var puddle = Instantiate(PuddleOfBlood,transform.position, Quaternion.identity);// made puddle 
             res += 1;
 

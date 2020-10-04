@@ -11,6 +11,8 @@ TagManager:
   - Flower
   - Tree
   - Exit
+  - Core
+  - Fence
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,22 @@ public class UpdateWorld : MonoBehaviour
     [SerializeField] 
     GameObject playerObj = null;
 
+    [SerializeField] private List<AudioClip> clips;
+
+    public void PlayRandomClip()
+    {
+        int index = Random.Range(0, clips.Count);
+        GetComponent<AudioSource>().clip = clips[index];
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void PlayClipWithFence()
+    {
+        int index = 2;
+        GetComponent<AudioSource>().clip = clips[index];
+        GetComponent<AudioSource>().Play();
+    }
+
     private void Awake()
     {
         flowers = GameObject.FindGameObjectsWithTag("Flower");
