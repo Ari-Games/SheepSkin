@@ -9,6 +9,7 @@ TagManager:
   - Rest
   - Path
   - Flower
+  - Tree
   layers:
   - Default
   - TransparentFX

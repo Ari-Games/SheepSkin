@@ -19,19 +19,19 @@ public class UpdateWorld : MonoBehaviour
 
     private void Start() 
     {
-        InvokeRepeating("InstantFlower",Random.Range(10,15),Random.Range(10, 15));
+        InvokeRepeating("InstantFlower",Random.Range(10,15),Random.Range(20, 25));
     }
     void LateUpdate()
     {
-        Dictionary<string,int> worldStates = 
-            GWorld.Instance.GetWorld().GetStates();
-        states.text = "";
+        // Dictionary<string,int> worldStates = 
+        //     GWorld.Instance.GetWorld().GetStates();
+        // states.text = "";
 
         
-        foreach(var st in worldStates)
-        {
-            states.text += st.Key + " | " + st.Value + "\n";
-        }
+        // foreach(var st in worldStates)
+        // {
+        //     states.text += st.Key + " | " + st.Value + "\n";
+        // }
     }
 
     void AddSheepAwayState()
@@ -47,9 +47,13 @@ public class UpdateWorld : MonoBehaviour
 
     private void InstantFlower()
     {
-        var instant = flowers[Random.Range(0,flowers.Length-1)];
-        instant.SetActive(true);
-        GWorld.Instance.GetWorld().ModifyState("FreeFlower",1);
-        GWorld.Instance.GetQueue("flowers").AddResource(instant);
+        if(!GWorld.Instance.GetWorld().HasState("FreeFlower"))
+        {
+            var indexOfFlower = Random.Range(0, flowers.Length - 1);
+            var instant = flowers[indexOfFlower];
+            instant.SetActive(true);
+            GWorld.Instance.GetWorld().ModifyState("FreeFlower",1);
+            GWorld.Instance.GetQueue("flowers").AddResource(instant);
+        }
     }
 }

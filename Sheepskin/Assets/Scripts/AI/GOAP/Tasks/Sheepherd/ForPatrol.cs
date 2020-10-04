@@ -12,10 +12,20 @@ public class ForPatrol : MonoBehaviour
     public int countOfPoints = 0;
     
     float standartSeparation = 14f;
-    float rageSeparation = 55f;
+
+    [SerializeField]
+    float rageSeparation = 80f;
 
     float timer = 0f;
     float timeToChange = 0.5f;
+
+    [SerializeField]
+    float speedForChangeOnRage = 2f;
+    [SerializeField]
+    float speedForChangeOnCalm = 1f;
+
+    [SerializeField]
+    float standartDistFromWolf = 2f;
 
     [SerializeField]
     Flocking.FlockController flockController = null;
@@ -34,19 +44,32 @@ public class ForPatrol : MonoBehaviour
         if(GWorld.Instance.GetWorld().HasState("TimeToBeBeast"))
         {
             timer += Time.deltaTime;
+
+            GetComponent<NavMeshAgent>().speed = speedForChangeOnRage + 1f;
+            foreach(var sheep in GameObject.FindObjectsOfType<Sheep>())
+            {
+                sheep.ChangeSpeed(speedForChangeOnRage);
+                sheep.distanceFromWolf = standartDistFromWolf * 2;
+            }
+
             if(flockController.separationWeight < rageSeparation && (timer > timeToChange)) 
             {
-                flockController.separationWeight += 1f;
+                flockController.separationWeight += 2.5f;
                 timer = 0;
             }
         }
         else
         {
             timer = 0;
+            GetComponent<NavMeshAgent>().speed = speedForChangeOnCalm + 0.5f;
+            foreach (var sheep in GameObject.FindObjectsOfType<Sheep>())
+            {
+                sheep.ChangeSpeed(speedForChangeOnCalm);
+                sheep.distanceFromWolf  = standartDistFromWolf;
+            }
             flockController.separationWeight = standartSeparation;
         }
     }
-    
 
     private void PatrolWalking()
     {

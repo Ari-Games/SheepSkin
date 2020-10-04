@@ -18,7 +18,7 @@ public class GoToFlower : GAction
             GetComponent<Flocking.Flock>().enabled = false;
         }
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
+        GetComponent<Rigidbody2D>().isKinematic = true;
         return true;
     }
 
@@ -31,6 +31,7 @@ public class GoToFlower : GAction
 
     public override bool PostPerform()
     {
+        GetComponent<Rigidbody2D>().isKinematic = false;
         GWorld.Instance.GetWorld().ModifyState("FreeFlower", -1);
         target.SetActive(false);
         beliefs.RemoveState("isHungry");
