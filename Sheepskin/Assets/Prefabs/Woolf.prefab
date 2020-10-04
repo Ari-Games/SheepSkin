@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 6683499645749395179}
   - component: {fileID: 6683499645749395177}
   - component: {fileID: 6683499645749395175}
-  - component: {fileID: 6683499645749395173}
   - component: {fileID: 6683499645749395174}
   - component: {fileID: 154977878}
   - component: {fileID: 154977877}
-  m_Layer: 0
+  - component: {fileID: 1128903285}
+  - component: {fileID: 1128903292}
+  m_Layer: 8
   m_Name: Woolf
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeroSprite: {fileID: 6683499646200953607}
-  Speed: 1
+  Speed: 10
 --- !u!114 &6683499645749395175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,18 +115,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0584c0bdeb509d04ba40b88dab65014f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6683499645749395173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683499645749395178}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bccf0b806d0a9b49a446302949190c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &6683499645749395174
@@ -181,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08384055, y: 0.01973188}
+  m_Offset: {x: 0.42490673, y: 0.26897252}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -192,8 +181,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8187797, y: 2.407398}
+  m_Size: {x: 0.60889244, y: 1.9089167}
   m_EdgeRadius: 0
+--- !u!114 &1128903285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683499645749395178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329c1b0e1db2b5340aefca528a83a928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1128903292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683499645749395178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9777f4d947e6c3c4fa45f7cb7760fe31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroSprite: {fileID: 6683499646200953607}
 --- !u!1 &6683499645830871998
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +220,7 @@ GameObject:
   - component: {fileID: 6683499645830871996}
   - component: {fileID: 6683499645830871999}
   - component: {fileID: 252677499}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -254,7 +268,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.61
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -319,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6683499646200953604}
   - component: {fileID: 6683499646200953605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9217240591930482679}
   - component: {fileID: 2564331539863735329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
