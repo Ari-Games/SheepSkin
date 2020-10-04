@@ -8,6 +8,10 @@ public class UpdateWorld : MonoBehaviour
 {
     public Text states;
     private GameObject[] flowers = null;
+
+    [SerializeField] 
+    GameObject playerObj = null;
+
     private void Awake()
     {
         flowers = GameObject.FindGameObjectsWithTag("Flower");
@@ -21,17 +25,14 @@ public class UpdateWorld : MonoBehaviour
     {
         InvokeRepeating("InstantFlower",Random.Range(10,15),Random.Range(20, 25));
     }
-    void LateUpdate()
-    {
-        // Dictionary<string,int> worldStates = 
-        //     GWorld.Instance.GetWorld().GetStates();
-        // states.text = "";
 
-        
-        // foreach(var st in worldStates)
-        // {
-        //     states.text += st.Key + " | " + st.Value + "\n";
-        // }
+    void Update()
+    {
+        if(!GWorld.isLife)
+        {
+            playerObj.GetComponent<MoveController>().enabled = false;
+            playerObj.GetComponent<AttackController>().enabled = false;
+        }
     }
 
     void AddSheepAwayState()
