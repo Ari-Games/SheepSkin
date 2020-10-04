@@ -16,7 +16,7 @@ public class Sense : MonoBehaviour
         Initialize();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateSense();
     }

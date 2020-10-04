@@ -93,7 +93,6 @@ public class Dog : MonoBehaviour
             //     timer = 0f;
             // }
             // print(isLastPos + " " + timer);
-            print(lastWolfPosAfterAttack);
             if(Vector2.Distance(transform.position, lastWolfPosAfterAttack) < 1f)
                 isLastPos = false;
             isLookAround = true;

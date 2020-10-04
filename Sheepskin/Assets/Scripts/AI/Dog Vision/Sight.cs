@@ -10,7 +10,7 @@ public class Sight : Sense
     public Transform enemyTranform;
 
     private Transform playerTransform;
-    private Vector3 rayDirection;
+    private Vector2 rayDirection;
 
     protected override void Initialize()
     {
@@ -38,11 +38,12 @@ public class Sight : Sense
     private void DetectAspect()
     {
         RaycastHit2D hit;
-        rayDirection = playerTransform.position - transform.position;
+        rayDirection = (Vector2)(playerTransform.position - transform.position);
 
-        if (Vector2.Angle(rayDirection, transform.forward) < fieldOfView)
+        if (Vector2.Angle(rayDirection, transform.forward) <= fieldOfView)
         {
-            hit = Physics2D.Raycast((Vector2)transform.position + new Vector2(0, 1.5f), rayDirection, viewDistance);
+            // print(rayDirection);
+            hit = Physics2D.Raycast((Vector2)transform.position, rayDirection, viewDistance);
             if(hit)
             {
                 string collidedName = hit.collider.tag;
@@ -50,7 +51,6 @@ public class Sight : Sense
                 {
                     enemyTranform = hit.transform;
                     isDetected = true;
-                    print("ISDETEECTED");
                     return;
                 }
             }
