@@ -26,6 +26,10 @@ public class Shepherd : GAgent
         InvokeRepeating("GoWork", Random.Range(30, 40), Random.Range(30, 40));
     }
 
+    private void Update() {
+        currentAction.RotateTo();
+    }
+
     private void GoRest()
     {
         beliefs.ModifyState("rest",1);

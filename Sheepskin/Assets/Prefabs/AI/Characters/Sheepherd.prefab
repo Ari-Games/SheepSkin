@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4120048933252344966}
   - component: {fileID: 4120048933252344984}
   - component: {fileID: 4120048933252344985}
+  - component: {fileID: 1493009097}
+  - component: {fileID: 1493009105}
   m_Layer: 0
   m_Name: Sheepherd
   m_TagString: Untagged
@@ -124,7 +126,7 @@ MonoBehaviour:
   actions: []
   currentAction: {fileID: 0}
   rBody: {fileID: 0}
-  distanceForComplete: 2
+  distanceForComplete: 1
   isAgentStop: 0
 --- !u!50 &4120048933252344966
 Rigidbody2D:
@@ -163,11 +165,16 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 0
-  preConditions: []
-  afterEffects: []
+  duration: 10
+  preConditions:
+  - key: rest
+    value: 0
+  afterEffects:
+  - key: goRest
+    value: 0
   agent: {fileID: 0}
   running: 0
+  isNonTarget: 0
 --- !u!114 &4120048933252344985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +188,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 4120048933252344965}
+  beliefStateKey: []
+  beliefStateValue: 
+--- !u!114 &1493009097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120048933252344961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15203241f7aaf549831dcfe71288699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Work
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 10
+  preConditions:
+  - key: work
+    value: 0
+  afterEffects:
+  - key: doneWork
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+  isNonTarget: 0
+--- !u!114 &1493009105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120048933252344961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0f11f4cf203a145806f22bced9c012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions: []
+  afterEffects:
+  - key: monitoring
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+  isNonTarget: 0

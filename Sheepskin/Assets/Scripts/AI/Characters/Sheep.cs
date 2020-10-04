@@ -28,6 +28,7 @@ public class Sheep : GAgent
             GWorld.Instance.GetWorld().ModifyState("BewareDogs",1);
             GWorld.Instance.SetLastWolfPosition(wolf.transform.position);
         }
+        
     }
 
     public void ChangeSpeed(float speedNav)
@@ -39,12 +40,6 @@ public class Sheep : GAgent
     {    
         return Vector2.Distance(transform.position, wolf.transform.position) < distanceFromWolf;
     }
-
-    private void Dead()
-    {
-        Destroy(gameObject,2f);
-    }
-
 
     private void TimeToHungry()
     {

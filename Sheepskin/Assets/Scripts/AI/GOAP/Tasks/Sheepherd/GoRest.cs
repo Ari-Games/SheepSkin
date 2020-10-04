@@ -12,6 +12,7 @@ public class GoRest : GAction
         // beliefs.RemoveState("canGiveOrder");
        // GWorld.Instance.GetWorld().RemoveState("CanGiveOrder");
         GWorld.Instance.GetWorld().ModifyState("TimeToBeBeast", (int)this.duration);
+        InvokeRepeating("SetSpriteDisactive", 0f, 0.1f);
         return true;
     }
 
@@ -22,6 +23,8 @@ public class GoRest : GAction
         // beliefs.ModifyState("canGiveOrder", 1);
         //GWorld.Instance.GetWorld().ModifyState("CanGiveOrder", 1);
         GWorld.Instance.GetWorld().RemoveState("TimeToBeBeast");
+        CancelInvoke("SetSpriteDisactive");
+        GetComponent<SpriteRenderer>().enabled = true;
         return true;
     }
 

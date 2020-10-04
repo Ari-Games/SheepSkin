@@ -96,6 +96,19 @@ namespace Goap
             return true;
         }
 
+        public void RotateTo()
+        {
+            Vector3 dir = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90), Time.deltaTime * 5);
+        }
+
+        public void SetSpriteDisactive()
+        {
+            if (Vector2.Distance(transform.position, target.transform.position) < 0.5f)
+                GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         public abstract bool PrePerform();
         public abstract bool PostPerform();
     }
