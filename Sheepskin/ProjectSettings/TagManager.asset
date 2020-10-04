@@ -10,6 +10,7 @@ TagManager:
   - Path
   - Flower
   - Tree
+  - Exit
   layers:
   - Default
   - TransparentFX

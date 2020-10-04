@@ -63,7 +63,7 @@ namespace Goap
 
         private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
         private static Vector2 lastWolfPosition = new Vector2(0,0);
-        public static int sheepLeftCount = 10;
+        public static int sheepLeftCount = 2;
         public static bool isLife = true;
         static GWorld() 
         {

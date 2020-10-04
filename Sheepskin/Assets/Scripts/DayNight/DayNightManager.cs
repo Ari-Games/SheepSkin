@@ -8,7 +8,7 @@ public class DayNightManager : MonoBehaviour
     [SerializeField] private Light2D sun;
     [SerializeField] private GameObject allLightsOnScene;
     [SerializeField] private float currentTimeOfDay = 0f;
-    [SerializeField] public static float secondsInFullDay = 60f;
+    [SerializeField] public static float secondsInFullDay = 180f;
 
     private float deltaIntensityOfSun;
     private float deltaIntensityOfAllLights;

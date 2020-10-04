@@ -11,7 +11,7 @@ namespace Assets.Scripts.Level
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] private List<Task> tasks;
+        //[SerializeField] private List<Task> tasks;
         [SerializeField] private int countSheeps;
 
         [SerializeField] private Text timeOfDayText;
@@ -27,11 +27,15 @@ namespace Assets.Scripts.Level
 
         [SerializeField] private GameObject endGame;
 
+        [SerializeField] private GameObject blockFences;
+        [SerializeField] private GameObject exit;
+
         private void Start()
         {
+            GWorld.isLife = true;
             countSheepsText.text = GWorld.sheepLeftCount.ToString();
-            foreach (var task in tasks)
-                Debug.Log(task);
+            //foreach (var task in tasks)
+            //   Debug.Log(task);
             StartCoroutine(ChangingOfTime());
         }
 
@@ -39,8 +43,8 @@ namespace Assets.Scripts.Level
         {
             if (Goap.GWorld.sheepLeftCount == 0)
             {
-                endGame.SetActive(true);
-                StartCoroutine(EndGame());
+                blockFences.SetActive(false);
+                exit.SetActive(true);
             }
             if (GWorld.isLife == false)
             {

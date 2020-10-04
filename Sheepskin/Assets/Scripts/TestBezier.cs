@@ -20,14 +20,14 @@ namespace Assets.Scripts
             while (t < 1)
             {
                 transform.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
-                t += 0.025f;
+                t += 0.015f;
                 yield return new WaitForSeconds(0.05f);
             }
             transform.localScale = new Vector3(-1, 1, 1);
             while (t > 0)
             {
                 transform.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
-                t -= 0.025f;
+                t -= 0.015f;
                 yield return new WaitForSeconds(0.05f);
             }
             transform.localScale = new Vector3(1, 1, 1);
@@ -38,14 +38,12 @@ namespace Assets.Scripts
         void Start()
         {
             StartCoroutine(Move());
-            StartCoroutine(EndGame());
         }
 
-        private IEnumerator EndGame()
+        private void Update()
         {
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene(0);
-            yield return new WaitForSeconds(2f);
+            if (Input.GetKeyDown(KeyCode.Space))
+                SceneManager.LoadScene(1);
         }
 
 
