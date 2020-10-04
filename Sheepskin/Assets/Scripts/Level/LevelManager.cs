@@ -30,6 +30,7 @@ namespace Assets.Scripts.Level
         [SerializeField] private GameObject blockFences;
         [SerializeField] private GameObject exit;
 
+
         private void Start()
         {
             GWorld.isLife = true;

@@ -65,6 +65,7 @@ namespace Goap
         private static Vector2 lastWolfPosition = new Vector2(0,0);
         public static int sheepLeftCount = 2;
         public static bool isLife = true;
+
         static GWorld() 
         {
             // Create our world
