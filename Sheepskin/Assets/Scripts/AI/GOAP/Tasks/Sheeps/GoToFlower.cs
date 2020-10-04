@@ -22,13 +22,6 @@ public class GoToFlower : GAction
         return true;
     }
 
-    private void RotateTo()
-    {
-        Vector3 dir = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90), Time.deltaTime * 5);
-    }
-
     public override bool PostPerform()
     {
         GetComponent<Rigidbody2D>().isKinematic = false;

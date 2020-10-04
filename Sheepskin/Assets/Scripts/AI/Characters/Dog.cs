@@ -20,7 +20,7 @@ public class Dog : MonoBehaviour
     float distanceFromWolf = 2f;
     private bool isLastPos = false;
     private bool isLookAround = false;
-
+    [SerializeField] MessageCloud messageCloud = null;
     float timer = 0f;
     float timerTwo = 0f;
     float timeToChangeState = 3f;
@@ -29,7 +29,8 @@ public class Dog : MonoBehaviour
     Transform home;
     Vector2 lastWolfPosAfterAttack = Vector2.zero;
     private DogState dogState = DogState.Rest;
-
+    [SerializeField]
+    float stopDistance = 4f;
     private void Start() {
         wolf = GameObject.FindWithTag("Player").transform;
         var agent = this.gameObject.GetComponent<NavMeshAgent>();
@@ -47,6 +48,7 @@ public class Dog : MonoBehaviour
             GetComponent<NavMeshAgent>().SetDestination(wolf.position);
             RotateToTarget(wolf.position);
             lastWolfPosAfterAttack = wolf.position;
+            messageCloud.DoMessage();
 
         }
         else if (dogState == DogState.FindingAfterAtack)
@@ -56,7 +58,8 @@ public class Dog : MonoBehaviour
         }
         else if(dogState == DogState.LookAround)
         {
-            print("LookAround");
+            // print("LookAround");
+            RotateToTarget(lastWolfPosAfterAttack);
         }
         else if(dogState == DogState.Finding)
         {
@@ -64,7 +67,7 @@ public class Dog : MonoBehaviour
             GetComponent<NavMeshAgent>().SetDestination(GWorld.Instance.GetLastWolfPosition());
             RotateToTarget(GWorld.Instance.GetLastWolfPosition());
 
-            if(Vector2.Distance(transform.position,GWorld.Instance.GetLastWolfPosition())< 0.5f && timerTwo >= timeToChangeState)
+            if(Vector2.Distance(transform.position,GWorld.Instance.GetLastWolfPosition())< 2f && timerTwo >= timeToChangeState)
                 GWorld.Instance.GetWorld().RemoveState("BewareDogs");
         }
         else if(dogState == DogState.Rest)
@@ -85,16 +88,13 @@ public class Dog : MonoBehaviour
         }
         else if (isLastPos)
         {
+            messageCloud.MessageActivity = false;
+            GetComponent<NavMeshAgent>().stoppingDistance = stopDistance;
             dogState = DogState.FindingAfterAtack;
-            // timer += Time.deltaTime;
-            // if(timer >= timeToChangeState)
-            // {
-            //     isLastPos = false;
-            //     timer = 0f;
-            // }
-            // print(isLastPos + " " + timer);
-            if(Vector2.Distance(transform.position, lastWolfPosAfterAttack) < 1f)
+            if(Vector2.Distance(transform.position, lastWolfPosAfterAttack) < stopDistance)
+            {
                 isLastPos = false;
+            }
             isLookAround = true;
         }
         else if(isLookAround)
@@ -105,6 +105,7 @@ public class Dog : MonoBehaviour
             {
                 isLookAround = false;
                 timer = 0;
+                GetComponent<NavMeshAgent>().stoppingDistance = 0f;
             }
             // print(isLookAround + " " + timer);
         }
