@@ -42,7 +42,7 @@ public class BitingLogic : MonoBehaviour
             blood.Play();
             Destroy(blood, 2);
             
-            if (res == 2 && count<walkingAnimationClip.Length)
+            if (res == 2 && count<walkingAnimationClip.Length-1)
             {
                 count += 1;
                 animatorOverrideController["idle"] = idleAnimationClip[count];

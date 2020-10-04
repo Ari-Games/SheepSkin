@@ -1,0 +1,25 @@
+﻿using Goap;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShowAlert : MonoBehaviour
+{
+    public GameObject panel;
+    private bool flag = false;
+    void Update()
+    {
+        if (GWorld.Instance.GetWorld().HasState("TimeToBeBeast") && !flag)
+        {
+            flag = true;
+            StartCoroutine(Show());
+        }
+    }
+
+    private IEnumerator Show()
+    {
+        panel.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        panel.SetActive(false);
+    }
+}

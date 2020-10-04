@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SheepHealth : MonoBehaviour
 {
-    [SerializeField]int health = 5;
+    [SerializeField]int health = 1;
     void Start()
     {
         
@@ -16,6 +16,7 @@ public class SheepHealth : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
+            Goap.GWorld.sheepLeftCount -= 1;
             var puddle = Instantiate(PuddleOfBlood,transform.position, Quaternion.identity);// made puddle 
             res += 1;
 

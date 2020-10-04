@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1914387227}
   - component: {fileID: 1914387228}
   - component: {fileID: 5236859848691355837}
+  - component: {fileID: 9083988942994590332}
   m_Layer: 0
   m_Name: Flock Sheep
   m_TagString: Sheep
@@ -322,3 +323,16 @@ MonoBehaviour:
   agent: {fileID: 0}
   running: 0
   isNonTarget: 1
+--- !u!114 &9083988942994590332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247381521064727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c85ce8a1d5be944bbebe1781100165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5

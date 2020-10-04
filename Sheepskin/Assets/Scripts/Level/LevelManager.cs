@@ -29,7 +29,7 @@ namespace Assets.Scripts.Level
 
         private void Start()
         {
-            countSheepsText.text = flockController.flockSize.ToString();
+            countSheepsText.text = GWorld.sheepLeftCount.ToString();
             foreach (var task in tasks)
                 Debug.Log(task);
             StartCoroutine(ChangingOfTime());
@@ -37,11 +37,12 @@ namespace Assets.Scripts.Level
 
         private void Update()
         {
-            if (GWorld.sheepLeftCount == 10)
+            if (Goap.GWorld.sheepLeftCount == 0)
             {
                 endGame.SetActive(true);
                 StartCoroutine(EndGame());
             }
+            countSheepsText.text = GWorld.sheepLeftCount.ToString();
         }
 
         private IEnumerator EndGame()
@@ -73,6 +74,8 @@ namespace Assets.Scripts.Level
                 currentTime += step;
                 yield return new WaitForSeconds(1f);                                                                                                           
             }
+            endGame.SetActive(true);
+            StartCoroutine(EndGame());
 
         }
 
