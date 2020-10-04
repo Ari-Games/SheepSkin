@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -37,6 +38,14 @@ namespace Assets.Scripts
         void Start()
         {
             StartCoroutine(Move());
+            StartCoroutine(EndGame());
+        }
+
+        private IEnumerator EndGame()
+        {
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(0);
+            yield return new WaitForSeconds(2f);
         }
 
 

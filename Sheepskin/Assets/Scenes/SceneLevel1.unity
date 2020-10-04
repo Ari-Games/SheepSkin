@@ -23954,7 +23954,8 @@ MonoBehaviour:
   panelSheeps: {fileID: 212913702}
   nightTime: {fileID: 21300000, guid: 44259783bfff3b24994f617459633109, type: 3}
   nightSheeps: {fileID: 21300000, guid: cc62f517dbcf77b43a2fa0e177f3e868, type: 3}
-  flockController: {fileID: 0}
+  flockController: {fileID: 787975764}
+  endGame: {fileID: 1276418570}
 --- !u!114 &752654689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27398,12 +27399,12 @@ GameObject:
   - component: {fileID: 1276418573}
   - component: {fileID: 1276418572}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: EndGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276418571
 RectTransform:
   m_ObjectHideFlags: 0

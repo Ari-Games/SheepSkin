@@ -37,9 +37,10 @@ namespace Assets.Scripts.Level
 
         private void Update()
         {
-            if (countSheeps == 10)
+            if (GWorld.Instance.SheepLeftCount == 10)
             {
                 endGame.SetActive(true);
+                StartCoroutine(EndGame());
             }
         }
 
@@ -47,6 +48,7 @@ namespace Assets.Scripts.Level
         {
             yield return new WaitForSeconds(3f);
             SceneManager.LoadScene(2);
+            yield return new WaitForSeconds(2f);
         }
 
         private IEnumerator ChangingOfTime()
