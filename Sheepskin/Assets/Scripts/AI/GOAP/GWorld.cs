@@ -63,7 +63,7 @@ namespace Goap
 
         private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
         private static Vector2 lastWolfPosition = new Vector2(0,0);
-        private static int sheepLeftCount = 0;
+        public static int sheepLeftCount = 0;
         static GWorld() 
         {
             // Create our world
@@ -109,15 +109,6 @@ namespace Goap
 
             return world;
         }   
-
-        public int SheepLeftCount
-        {
-            get { return sheepLeftCount;}
-
-            set {sheepLeftCount += value;}
-
-        }
-
         
     }
 }
