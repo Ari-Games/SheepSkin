@@ -37,7 +37,7 @@ namespace Assets.Scripts.Level
 
         private void Update()
         {
-            if (GWorld.Instance.SheepLeftCount == 10)
+            if (GWorld.sheepLeftCount == 10)
             {
                 endGame.SetActive(true);
                 StartCoroutine(EndGame());
