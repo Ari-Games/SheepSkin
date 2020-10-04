@@ -27,7 +27,8 @@ public class Shepherd : GAgent
     }
 
     private void Update() {
-        currentAction.RotateTo();
+        if(currentAction)
+            currentAction.RotateTo();
     }
 
     private void GoRest()

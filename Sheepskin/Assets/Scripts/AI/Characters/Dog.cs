@@ -32,26 +32,34 @@ public class Dog : MonoBehaviour
     [SerializeField]
     float stopDistance = 4f;
     Animator animator;
-    private void Start() {
+
+
+    List<string> dogsQuotes = new List<string>()
+            {"Эй,пес?", "Слышь", "Бррр", "Гав-гав",
+             "Ко мне","ррр-а","Сюда"};
+
+    private void Start() 
+    {
         wolf = GameObject.FindWithTag("Player").transform;
         var agent = this.gameObject.GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        animator = GetComponent<Animator>();
-        
+        animator = GetComponent<Animator>();    
     }
+
+
     // Update is called once per frame
     void Update()
     {
         SetDogState();
-        if (Vector2.Distance(transform.position, wolf.position) < 1)
+        if (Vector2.Distance(transform.position, wolf.position) < 1.2f)
             GWorld.isLife = false;
         if (dogState == DogState.Atack)
         {
             GetComponent<NavMeshAgent>().SetDestination(wolf.position);
             RotateToTarget(wolf.position);
             lastWolfPosAfterAttack = wolf.position;
-            messageCloud.DoMessage();
+            messageCloud.DoMessage(dogsQuotes);
             animator.SetTrigger("go");
         }
         else if (dogState == DogState.FindingAfterAtack)
@@ -72,7 +80,10 @@ public class Dog : MonoBehaviour
             RotateToTarget(GWorld.Instance.GetLastWolfPosition());
             animator.SetTrigger("go");
             if(Vector2.Distance(transform.position,GWorld.Instance.GetLastWolfPosition())< 2f && timerTwo >= timeToChangeState)
-                GWorld.Instance.GetWorld().RemoveState("BewareDogs");
+               {
+                    GWorld.Instance.GetWorld().RemoveState("BewareDogs");
+                    print(timerTwo);
+               }
         }
         else if(dogState == DogState.Rest)
         {
@@ -80,8 +91,6 @@ public class Dog : MonoBehaviour
             RotateToTarget(home.position);
             animator.SetTrigger("stop");
         }
-
-
     }
 
     private void SetDogState()
@@ -113,6 +122,8 @@ public class Dog : MonoBehaviour
                 GetComponent<NavMeshAgent>().stoppingDistance = 0f;
             }
             // print(isLookAround + " " + timer);
+
+            GWorld.Instance.GetWorld().RemoveState("BewareDogs");
         }
         else if(GWorld.Instance.GetWorld().HasState("BewareDogs"))
         {
