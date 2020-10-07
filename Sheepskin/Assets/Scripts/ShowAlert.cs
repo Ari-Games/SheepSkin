@@ -7,6 +7,11 @@ public class ShowAlert : MonoBehaviour
 {
     public GameObject panel;
     private bool flag = false;
+
+    private void Start()
+    {
+        flag = false;
+    }
     void Update()
     {
         if (GWorld.Instance.GetWorld().HasState("TimeToBeBeast") && !flag)
