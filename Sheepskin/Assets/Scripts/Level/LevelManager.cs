@@ -6,12 +6,12 @@ using System;
 using Flocking;
 using Goap;
 using UnityEngine.SceneManagement;
-
+using Assets.Scripts.Tasks;
 namespace Assets.Scripts.Level
 {
     public class LevelManager : MonoBehaviour
     {
-        //[SerializeField] private List<Task> tasks;
+        [SerializeField] private Task tasks;
         [SerializeField] private int countSheeps;
 
         [SerializeField] private Text timeOfDayText;
@@ -23,44 +23,43 @@ namespace Assets.Scripts.Level
         [SerializeField] private Image panelSheeps;
         [SerializeField] private Sprite nightTime;
         [SerializeField] private Sprite nightSheeps;
-        [SerializeField] private FlockController flockController;
 
         [SerializeField] private GameObject endGame;
 
         [SerializeField] private GameObject blockFences;
         [SerializeField] private GameObject exit;
+        private int allCountSheep;
 
 
         private void Start()
         {
             GameObject.FindGameObjectWithTag("Core").GetComponent<UpdateWorld>().PlayRandomClip();
-            GWorld.isLife = true;
-            countSheepsText.text = GWorld.sheepLeftCount.ToString();
-            //foreach (var task in tasks)
-            //   Debug.Log(task);
+            Player.Player.Instance.NewGame();
+            allCountSheep = tasks.Progress();
+            countSheepsText.text = allCountSheep.ToString();
+
             StartCoroutine(ChangingOfTime());
         }
 
         private void Update()
         {
-            if (Goap.GWorld.sheepLeftCount == 0)
+            if (tasks.IsComplete())
             {
                 blockFences.SetActive(false);
                 exit.SetActive(true);
             }
-            if (GWorld.isLife == false)
+            if (Player.Player.Instance.IsLife == false)
             {
                 endGame.SetActive(true);
                 StartCoroutine(EndGame());
             }
-            countSheepsText.text = GWorld.sheepLeftCount.ToString();
+            countSheepsText.text = tasks.Progress().ToString();
         }
 
         private IEnumerator EndGame()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             SceneManager.LoadScene(2);
-            yield return new WaitForSeconds(2f);
         }
 
         private IEnumerator ChangingOfTime()
@@ -81,7 +80,8 @@ namespace Assets.Scripts.Level
                     countHours = 0;
                 }
                 int countSeconds = (int)TimeSpan.FromSeconds(currentTime).TotalMinutes - countHours* 60;
-                timeOfDayText.text = $"{startHour + countHours}:{countSeconds}";
+                var zeroAfterSecond = countSeconds / 10 == 0 ? "0" : "";
+                timeOfDayText.text = $"{startHour + countHours}:{zeroAfterSecond + countSeconds}";
                 currentTime += step;
                 yield return new WaitForSeconds(1f);                                                                                                           
             }

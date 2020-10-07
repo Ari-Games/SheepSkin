@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Player;
 using Goap;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,15 +18,8 @@ public class UpdateWorld : MonoBehaviour
     public void PlayRandomClip()
     {
         int index = Random.Range(0, clips.Count);
-        GetComponent<AudioSource>().clip = clips[index];
-        GetComponent<AudioSource>().Play();
-    }
-
-    public void PlayClipWithFence()
-    {
-        int index = 2;
-        GetComponent<AudioSource>().clip = clips[index];
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().clip = clips[index];
+        GetComponent<AudioSource>().PlayOneShot(clips[index]);
     }
 
     private void Awake()
@@ -44,7 +38,7 @@ public class UpdateWorld : MonoBehaviour
 
     void Update()
     {
-        if(!GWorld.isLife)
+        if(!Player.Instance.IsLife)
         {
             playerObj.GetComponent<MoveController>().enabled = false;
             playerObj.GetComponent<AttackController>().enabled = false;

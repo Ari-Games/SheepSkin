@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Goap;
 using UnityEngine.AI;
+using Assets.Scripts.Player;
 
 public enum DogState
 {
@@ -53,7 +54,8 @@ public class Dog : MonoBehaviour
     {
         SetDogState();
         if (Vector2.Distance(transform.position, wolf.position) < 1.2f)
-            GWorld.isLife = false;
+            Player.Instance.IsLife = false;
+
         if (dogState == DogState.Atack)
         {
             GetComponent<NavMeshAgent>().SetDestination(wolf.position);

@@ -24,7 +24,7 @@ public class ShowAlert : MonoBehaviour
     private IEnumerator Show()
     {
         panel.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         panel.SetActive(false);
     }
 }

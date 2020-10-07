@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ public class SheepHealth : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
-            Goap.GWorld.sheepLeftCount -= 1;
+            Player.Instance.EatSheep();
             GameObject.FindGameObjectWithTag("Core").GetComponent<UpdateWorld>().PlayRandomClip();
             var puddle = Instantiate(PuddleOfBlood,transform.position, Quaternion.identity);// made puddle 
             res += 1;

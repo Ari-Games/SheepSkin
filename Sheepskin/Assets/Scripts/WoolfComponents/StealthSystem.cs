@@ -11,15 +11,6 @@ public class StealthSystem : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.tag == "Fence")
-        {
-            GameObject.FindGameObjectWithTag("Core").GetComponent<UpdateWorld>().PlayClipWithFence();
-            return;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Exit")
@@ -37,6 +28,7 @@ public class StealthSystem : MonoBehaviour
         collision.GetComponent<SpriteRenderer>().color = SpriteRenderer;
         Secrecy = true;
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag != "Tree")
